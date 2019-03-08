@@ -5,6 +5,6 @@ account: fludetect
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 763983
-bundleId: 1924056
+bundleId: 1924095
 url: https://fludetect.shinyapps.io/part3/
-when: 1552010674.21742
+when: 1552012222.15631
