@@ -9,7 +9,7 @@ function(input, output, session) {
 
 
     displayFlag <- reactiveValues(data = 0)
-    csvFileName <- reactiveValues(data = "finalStatesCheck.csv")
+    csvFileName <- reactiveValues(data = "Data/finalStatesCheck.csv")
 
     observeEvent(input$twtrBtn, {
         updateCheckboxInput(session, "cmprChk", value = F)
@@ -34,9 +34,9 @@ function(input, output, session) {
     observeEvent(input$filter, {
         filterVal <- input$filter
         if (filterVal == "0")
-            csvFileName$data <- "finalStatesCheck.csv"
+            csvFileName$data <- "Data/finalStatesCheck.csv"
         else
-            csvFileName$data <- "fluStates.csv"
+            csvFileName$data <- "Data/fluStates.csv"
 
     })
 
@@ -92,10 +92,10 @@ function(input, output, session) {
     if (displayFlag$data == 0)
         plotMap <- plotHeatMap(csvFileName$data)
     else if (displayFlag$data == 1)
-        plotMap <- plotCDCMap("cdc_week.csv")
+        plotMap <- plotCDCMap("Data/cdc_week.csv")
     else if (displayFlag$data == 2){
         p1 <- plotHeatMap(csvFileName$data, title="2018-19 Flu Season Heatmap Comparison : Twitter Vs CDC")
-        p2 <- plotCDCMap("cdc_week.csv", title="2018-19 Flu Season Heatmap Comparison : Twitter Vs CDC")
+        p2 <- plotCDCMap("Data/cdc_week.csv", title="2018-19 Flu Season Heatmap Comparison : Twitter Vs CDC")
         subplot(p1, p2, nrows=2)
     }
 
